@@ -1,0 +1,45 @@
+<% include inc/layouts/out/heading.ejs %>
+
+<% include inc/layouts/out/header.ejs %>
+
+<section class="z-depth-5 brown lighten-4 card-panel plaque">
+
+	<h5><i class="material-icons">perm_identity</i> Sign Up</h5>
+
+	<div class="row">
+	    <form class="push-s3 col s6">
+		    <div class="row">
+
+		    	<div class="input-field col s12">
+		          <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+		          <label for="first_name">First Name</label>
+		        </div>
+		        <div class="input-field col s12">
+		          <input id="last_name" type="text" class="validate">
+		          <label for="last_name">Last Name</label>
+		        </div>
+
+		        <div class="input-field col s12">
+		          <input id="email" type="email" class="validate">
+		          <label for="email">Email</label>
+		        </div>
+		    </div>
+		    <div class="row">
+		        <div class="input-field col s12">
+		          <input id="password" type="password" class="validate">
+		          <label for="password">Password</label>
+		        </div>
+		    </div>
+		    <div class="row">
+				<a class="waves-effect waves-light btn col s12">Sign Up</a>
+		    </div>
+	    </form>
+
+	    <div class="clearfix">
+	    	<p>Already have an account? <a href="/login">Log in</a></p>
+		</div>
+	</div>
+        
+</section>
+
+<% include inc/layouts/out/footer.ejs %>

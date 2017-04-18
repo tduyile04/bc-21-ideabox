@@ -1,0 +1,36 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+  
+}
+.body {
+	background-image: linear-gradient(rgba(255,255,255,0),rgba(255,255,255,0)), url("/images/todo_background.jpg");
+}
+a {
+  color: #00B7FF;
+}
+
+/*
+ * My stylesheet
+ */
+
+ .plaque {
+ 	display: block;
+ 	position: relative;
+ 	text-align: center;
+ 	opacity: 0.93;
+ }
+ .white-text {
+ 	color: rgb(255,255,255);
+ 	padding-bottom: 0;
+ }
+
+ #new-sign {
+ 	padding: 10px;
+ }
+
+ .centralize {
+ 	margin-left: auto;
+ 	margin-right: auto;
+ }

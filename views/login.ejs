@@ -1,0 +1,36 @@
+<% include inc/layouts/out/heading.ejs %>
+
+<% include inc/layouts/out/header.ejs %>
+
+<section class="z-depth-5 brown lighten-4 card-panel plaque">
+
+	<h5><i class="material-icons">lock_open</i> Log in</h5>
+
+	<div class="row">
+	    <form class="push-s3 col s6">
+	      <div class="row">
+	        <div class="input-field col s12">
+	          <input id="email" type="email" class="validate">
+	          <label for="email">Email</label>
+	        </div>
+	      </div>
+	      <div class="row">
+	        <div class="input-field col s12">
+	          <input id="password" type="password" class="validate">
+	          <label for="password">Password</label>
+	        </div>
+	      </div>
+	      <div class="row">
+			<a href="/dashboard" class="waves-effect waves-light btn col s12">Log In</a>
+	      </div>
+	    </form>
+
+	    <div class="clearfix">
+	    	<p>Forgot your password? <a href="#">Reset it</a></p>
+	    	<p>Don't have an account? <a href="/signup">Create an IdeaBox Account</a></p>
+		</div>
+	</div>
+        
+</section>
+
+<% include inc/layouts/out/footer.ejs %>
