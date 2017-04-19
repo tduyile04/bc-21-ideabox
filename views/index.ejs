@@ -1,70 +1,78 @@
 <html>
-<head>
-	<title>Idea Box</title>
-	<link rel="stylesheet" type="text/css" href="/materialize/css/materialize.min.css">
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
-</head>
+	<% include inc/layouts/in/heading.ejs %>
+	<% include inc/layouts/in/header.ejs %>
 
-<body>
-	<header>
-		<nav>
-		    <div class="nav-wrapper grey darken-4">
-		      <ul id="nav-mobile" class="left hide-on-med-and-down">
-		        <li>Welcome Stranger</li>
-		      </ul>
-		      <a href="#" class="brand-logo center">Idea Box</a>
-		      <ul id="nav-mobile" class="right hide-on-med-and-down">
-		        <li><a href="/">Log Out</a></li>
-		      </ul>
-		    </div>
-		</nav>
-	</header>
-
-	<div class="container" ng-controller="TaskerController">
+	<div class="container">
 		<div class="grey lighten-2">
 			<img src="/images/ideabox3.png" alt="an idea box banner" id="banner">
 		</div>
 
-		<div class="clearfix divider"></div>
+		<div class="divider"></div>
 
-		<section>
-			<div class="row">
-				<div class="col m4 pull-m2">
-					<h5 class="my-blue">Top Ideas</h5>
-				</div>
-				<div class="col m4 push-m7 head-room">
-					<a href="#" class="btn">Share Your Ideas</a>
-				</div>
+
+		<div class="row">
+			<div class="col m4">
+				<h5 class="my-blue">Top Ideas</h5>
 			</div>
-		</section>
+			<div class="col m4 push-m5 head-room">
+				<a href="#modal1" class="modal-trigger waves-effect waves-light btn">Share Your Ideas</a>
+			</div>
+
+			<!-- Modal Structure -->
+			<div id="modal1" class="modal modal-fixed-footer">
+				<div class="modal-content">
+				    <h4>Share Your Idea?</h4>
+				    <div class="idea-title">
+				    	<p>Title</p>
+				    	<input type="text" id="title">
+				    </div>
+				    <div class="idea-description">
+				    	<p>Description</p>
+				    	<textarea id="description"></textarea>
+				    </div>
+				</div>
+				<div class="modal-footer">
+				  	<button id="send_btn" class="modal-action modal-close waves-effect waves-green btn-flat">Send</button>
+				    <button class="modal-action modal-close waves-effect waves-green btn-flat">Cancel</button>
+				   
+				</div>
+			</div><!-- modal modal-fixed-footer-->
+
+		</div><!--row-->
 
 		<div class="divider"></div>
 
-		<table class="striped">
-			<tbody>
-				<tr>
-					<div class="row">
-						<div class="col s3">
-							<td><div>0</div>upvotes</td>
-							<td><div>0</div> downvotes</td>
-							<td><div>0</div> comments</td>
-						</div>
-						<div class="col s6">
-							<td>Title</td>
-						</div>
-						<div class="col s3">
-							<td>Time</td>
-						</div>
-					</div>
-				</tr>			
-			</tbody>									
-		</table>
+		<section>
+			<table class="striped" id="idea-list">
+				<tbody></tbody>						
+			</table>
+		</section>
+		
 	</div><!--container-->
 
 	<footer>
 	</footer>
 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<!-- <script type="text/javascript" src="/javascripts/materialize.js"></script> -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/3.8.0/firebase.js"></script>
+	<script>
+	  // Initialize Firebase
+	  var config = {
+	    apiKey: "AIzaSyD7v_-dVadUGMCpXW1WvhG7inxn-RU52BY",
+	    authDomain: "ideabox-c28d8.firebaseapp.com",
+	    databaseURL: "https://ideabox-c28d8.firebaseio.com",
+	    projectId: "ideabox-c28d8",
+	    storageBucket: "ideabox-c28d8.appspot.com",
+	    messagingSenderId: "419342074689"
+	  };
+	  firebase.initializeApp(config);
+	</script>
+
+	<script type="text/javascript" src="/javascripts/submit_ideas.js"></script>
+	<script type="text/javascript" src="/javascripts/display_ideas.js"></script>
+	<script type="text/javascript" src="/javascripts/animation.js"></script>
 	<script type="text/javascript" src="/javascripts/angular.min.js"></script>
 	<script type="text/javascript" src="/javascripts/controller.js"></script>
 </body>
