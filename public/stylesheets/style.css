@@ -50,3 +50,8 @@ a {
  	width: 15%;
  	height: 15%;
  }
+
+#share-idea {
+	margin-top: -100px;
+	margin-left: 5%;
+}
