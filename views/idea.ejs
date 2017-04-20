@@ -1,4 +1,3 @@
-
 	<% include inc/layouts/in/heading.ejs %>
 	<% include inc/layouts/in/header.ejs %>
 
@@ -17,12 +16,15 @@
 			<button id="upvotes">Upvote</button>
 			<button id="downvotes">Downvote</button>
 			<div>
-				<textarea></textarea>
-				<button>Comment</button>
+				<textarea id="comment"></textarea>
+				<button id="make-comment">Comment</button>
 			</div>
 		</div>
 
-		<div class="comments"></div>
+		
+	    <ul class="collection with-header">
+	        <li class="collection-header"><h4>Comments</h4></li>
+	        <li class="collection-item" id = "comment-field"></li>
 	</div>
 
 	<% include inc/layouts/in/footer.ejs %>
