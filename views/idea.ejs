@@ -3,14 +3,19 @@
 	<% include inc/layouts/in/header.ejs %>
 
 	<div class="container">
+
+		<div class="grey lighten-2">
+			<img src="/images/ideabox3.png" alt="an idea box banner" id="banner">
+		</div>
+
 		<div class="row">
 			<div class="col s3">
-				<section><i class="material-icons">thumb_up</i></section>
-				<section><i class="material-icons">thumb_down</i></section>
+				<section><i class="material-icons" id="thumb_up">thumb_up</i></section>
+				<section><i class="material-icons" id="thumb_down">thumb_down</i></section>
 			</div>
 			<div class="col s9">
-				<section>{{title}}</section>
-				<section>{{description}}</section>
+				<section><h3><%= Title %></h3></section>
+				<section><h5><%= Description %></h5></section>
 			</div>
 		</div>
 	</div>

@@ -71,9 +71,11 @@ router.post('/dashboard', (req, res) => {
 
 router.get('/user/question/:idea_title', (req,res,next) => {
 	var title = req.params.idea_title;
+	console.log(title);
+
 	var description;
 
-	var titleRef = ref.child('ideas');
+	var titleRef = rootRef.child('ideas');
 	titleRef.orderByChild('Title')
 		.equalTo(title)
 		.limitToFirst(1)
@@ -87,7 +89,7 @@ router.get('/user/question/:idea_title', (req,res,next) => {
 			title = data[key].Title;
 			description = data[key].Description;
 
-			res.render('idea', { title: title, description: description });
+			res.render('idea', { Title: title, Description: description });
 		});
 });
 
