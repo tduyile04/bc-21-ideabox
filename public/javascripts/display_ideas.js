@@ -24,7 +24,7 @@ $(document).ready(function() {
 					'<td><div>' + ideas[k].Downvotes + '</div>' +  '<i class="material-icons">thumb_down</i>' + '</td>' + 
 				'</div>' +
 				'<div class="col s1">' +
-					'<td><div>' + ideas[k].Comments + '</div>' +  '<i class="material-icons">chat_bubble</i>' + '</td>' + 
+					'<td><div>' + Object.keys(ideas[k].Comments).length + '</div>' +  '<i class="material-icons">chat_bubble</i>' + '</td>' + 
 				'</div>' +
 
 				'<div class="col s6">' +

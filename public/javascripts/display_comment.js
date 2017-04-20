@@ -6,6 +6,7 @@ $(document).ready(function() {
 
 	var title = $('#view-title').text();
 	var comment;
+	var key2;
 
 	var commentRef = ideaRef.orderByChild('Title')
 								.equalTo(title)
@@ -24,19 +25,19 @@ $(document).ready(function() {
 										//console.log('hey can you see me !');
 										//console.log(comment);
 
-										var keys = Object.keys(comment);
+										key2 = Object.keys(comment);
 
-										console.log(keys);
+										console.log(key2);
 
-										for (var i = keys.length - 1; i >=0; i--) {
-											var k = keys[i];
+										for (var i = key2.length - 1; i >=0; i--) {
+											var k = key2[i];
 
 										    var $entry = $('<li class="collection-item" id = "comment-field">' + comment[k].User_id + 
 										    				':' + comment[k].Comment + '</li>');
 											
 											$('#comment-field').append($entry);
 										}
-									});									
+									});							
 								});
 
 });
