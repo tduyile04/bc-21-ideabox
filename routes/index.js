@@ -18,8 +18,8 @@ var rootRef = firebase.database().ref();
 
 /* OUT */
 router.get('/', (req, res, next) => {
- 
-  res.render('splash', { title: 'Express' });
+
+	res.render('splash', { title: 'Express' });
 });
 
 router.get('/login', (req, res, next) => {
@@ -69,8 +69,26 @@ router.post('/dashboard', (req, res) => {
 	res.redirect('/dashboard');
 });
 
-router.get('/user/question', (req,res,next) => {
-	res.render('idea', { title: 'Express' });
+router.get('/user/question/:idea_title', (req,res,next) => {
+	var title = req.params.idea_title;
+	var description;
+
+	var titleRef = ref.child('ideas');
+	titleRef.orderByChild('Title')
+		.equalTo(title)
+		.limitToFirst(1)
+		.on('value', function(snap) {
+			data = snap.val();
+			console.log(data);
+
+			var keys = Object.keys(data);
+			var key = keys[0];
+
+			title = data[key].Title;
+			description = data[key].Description;
+
+			res.render('idea', { title: title, description: description });
+		});
 });
 
 module.exports = router;

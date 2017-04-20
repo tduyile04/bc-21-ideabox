@@ -28,7 +28,7 @@ $(document).ready(function() {
 				'</div>' +
 
 				'<div class="col s6">' +
-					'<td><div><a href="/user/question">' + ideas[k].Title + '</a></div>' + ideas[k].Description + '</td>' +
+					'<td><div><a href="/user/question/' + ideas[k].Title + '"' + '>' + ideas[k].Title + '</a></div>' + ideas[k].Description + '</td>' +
 				'</div>' +
 				'<div class="col s3">' + 
 					'<td><div>' + ideas[k].Time + '</div>' + ideas[k].User_Id + '</td>' +

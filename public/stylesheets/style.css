@@ -1,10 +1,10 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 
   
 }
 .body {
+	padding: 50px;
 	background-image: linear-gradient(rgba(255,255,255,0),rgba(255,255,255,0)), url("/images/todo_background.jpg");
 }
 a {
@@ -54,4 +54,12 @@ a {
 #share-idea {
 	margin-top: -100px;
 	margin-left: 5%;
+}
+
+#description {
+	height: 200px;
+}
+.my-container {
+	padding-left: 5%;
+	padding-right: 5%;
 }
