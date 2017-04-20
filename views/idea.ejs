@@ -8,16 +8,21 @@
 			<img src="/images/ideabox3.png" alt="an idea box banner" id="banner">
 		</div>
 
-		<div class="row">
-			<div class="col s3">
-				<section><i class="material-icons" id="thumb_up">thumb_up</i></section>
-				<section><i class="material-icons" id="thumb_down">thumb_down</i></section>
-			</div>
-			<div class="col s9">
-				<section><h3><%= Title %></h3></section>
-				<section><h5><%= Description %></h5></section>
+		<div>
+			<section><h3 id="view-title"><%= Title %></h3></section>
+			<section><h5><%= Description %></h5></section>
+		</div>
+
+		<div>
+			<button id="upvotes">Upvote</button>
+			<button id="downvotes">Downvote</button>
+			<div>
+				<textarea></textarea>
+				<button>Comment</button>
 			</div>
 		</div>
+
+		<div class="comments"></div>
 	</div>
-</body>
-</html>
+
+	<% include inc/layouts/in/footer.ejs %>
