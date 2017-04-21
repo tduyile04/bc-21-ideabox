@@ -1,7 +1,9 @@
 var express = require('express');
 var router = express.Router();
-
+var markdown = require( "markdown" ).markdown;
 var firebase = require('firebase');
+var showdown  = require('showdown');
+var converter = new showdown.Converter();
 
 //var config = require('../javascripts/include/config');
 var config = {
@@ -17,20 +19,50 @@ firebase.initializeApp(config);
 var rootRef = firebase.database().ref();
 
 /* OUT */
-router.get('/', (req, res, next) => {
+router.get('/', (req, res) => {
 
 	res.render('splash', { title: 'Express' });
 });
 
-router.get('/login', (req, res, next) => {
+router.get('/login', (req, res) => {
   res.render('login', { title: 'Express' });
 });
 
 router.post('/login', (req, res) => {
+	
 	res.redirect('/dashboard');
+
+	// var email = req.body.email;
+	// var pass = req.body.password;
+	// const auth = firebase.auth();
+
+	// const promise = auth.signInWithEmailAndPassword(email, pass);
+
+	// promise
+	// .then(function(user) {
+	// 		auth.onAuthStateChanged(function(user) {
+		//     	if (user != null) {
+		// 			console.log('Success');
+		// 			res.redirect('/dashboard');
+		// 		} else {
+		// 			console.log('Failed');
+		// 			res.redirect('/login');
+		// 		}
+
+	// 		});
+ 	// });
+
+    
+
+	// promise
+	// .catch(function(e) {
+	// 	console.log(e.message);
+ //      	//res.status(500).send({message: 'Login Failed'});
+ //      	res.redirect('/login');
+	// });
 });
 
-router.get('/signup', (req, res, next) => {
+router.get('/signup', (req, res) => {
   res.render('signup', { title: 'Express' });
 });
 
@@ -49,10 +81,21 @@ router.post('/signup', (req, res) => {
 		Time: "12:00"
 	});
 
+	// const auth = firebase.auth();
+
+	// const promise = auth.createUserWithEmailAndPassword(email, pass);
+	// promise
+	// .then(function() {
+	// 	res.redirect('/dashboard');
+	// });
+	// promise
+	// .catch(function(e) {
+	// 	console.log(e.message);
+	// });
 });
 
 /* IN */
-router.get('/dashboard', (req, res, next) => {
+router.get('/dashboard', (req, res) => {
 	res.render('index', { title: 'Express' });
 });
 
@@ -87,7 +130,8 @@ router.get('/user/question/:idea_title', (req,res,next) => {
 			var key = keys[0];
 
 			title = data[key].Title;
-			description = data[key].Description;
+			//description = markdown.toHTML(data[key].Description);
+			description = converter.makeHtml(data[key].Description);
 
 			res.render('idea', { Title: title, Description: description });
 		});

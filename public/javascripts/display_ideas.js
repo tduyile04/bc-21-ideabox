@@ -18,17 +18,17 @@ $(document).ready(function() {
 
 		    var $row = $('<div class="row">' +
 				'<div class="col s1">' +
-					'<td><div>' + ideas[k].Upvotes + '</div>' + '<i class="material-icons">thumb_up</i>' + '</td>' +
+					'<td">' + ideas[k].Upvotes  + '<i class="material-icons">thumb_up</i>' + '</td>' +
 				'</div>' +
 				'<div class="col s1">' +
-					'<td><div>' + ideas[k].Downvotes + '</div>' +  '<i class="material-icons">thumb_down</i>' + '</td>' + 
+					'<td">' + ideas[k].Downvotes  +  '<i class="material-icons">thumb_down</i>' + '</td>' + 
 				'</div>' +
 				'<div class="col s1">' +
-					'<td><div>' + Object.keys(ideas[k].Comments).length + '</div>' +  '<i class="material-icons">chat_bubble</i>' + '</td>' + 
+					'<td">' + Object.keys(ideas[k].Comments).length  +  '<i class="material-icons">chat_bubble</i>' + '</td>' + 
 				'</div>' +
 
 				'<div class="col s6">' +
-					'<td><div><a href="/user/question/' + ideas[k].Title + '"' + '>' + ideas[k].Title + '</a></div>' + ideas[k].Description + '</td>' +
+					'<td><div><a href="/user/question/' + ideas[k].Title + '"' + '>' + ideas[k].Title + '</a></div>' + '<div id="view">' + markdown.toHTML(ideas[k].Description) + '</div>' + '</td>' +
 				'</div>' +
 				'<div class="col s3">' + 
 					'<td><div>' + ideas[k].Time + '</div>' + ideas[k].User_Id + '</td>' +

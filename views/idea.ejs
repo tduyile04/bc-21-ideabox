@@ -13,18 +13,21 @@
 		</div>
 
 		<div>
-			<button id="upvotes">Upvote</button>
-			<button id="downvotes">Downvote</button>
+			<button class="btn green lighten-1" id="upvotes">Upvote</button>
+			<button class="btn red lighten-1" id="downvotes">Downvote</button>
 			<div>
 				<textarea id="comment"></textarea>
-				<button id="make-comment">Comment</button>
+				<button class="btn light-blue darken-1 right" id="make-comment">Comment</button>
 			</div>
 		</div>
 
-		
-	    <ul class="collection with-header">
-	        <li class="collection-header"><h4>Comments</h4></li>
-	        <li class="collection-item" id = "comment-field"></li>
+		<div id="comment-section">
+			<ul class="collection with-header">
+	        	<li class="collection-header"><h4>Comments</h4></li>
+	        	<li class="collection-item" id = "comment-field"></li>
+	    	</ul>
+		</div>
+	    
 	</div>
 
 	<% include inc/layouts/in/footer.ejs %>
