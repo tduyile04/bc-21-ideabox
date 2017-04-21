@@ -96,3 +96,7 @@ a {
 .my-container {
 	min-height: calc(100vh - 70px);
 }
+.smaller-icon {
+	font-size: 15px;
+	margin-left: 5px;
+}

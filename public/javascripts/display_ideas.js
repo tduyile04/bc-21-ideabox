@@ -18,13 +18,13 @@ $(document).ready(function() {
 
 		    var $row = $('<div class="row">' +
 				'<div class="col s1">' +
-					'<td">' + ideas[k].Upvotes  + '<i class="material-icons">thumb_up</i>' + '</td>' +
+					'<td">' + ideas[k].Upvotes  + '<i class="material-icons smaller-icon">thumb_up</i>' + '</td>' +
 				'</div>' +
 				'<div class="col s1">' +
-					'<td">' + ideas[k].Downvotes  +  '<i class="material-icons">thumb_down</i>' + '</td>' + 
+					'<td">' + ideas[k].Downvotes  +  '<i class="material-icons smaller-icon">thumb_down</i>' + '</td>' + 
 				'</div>' +
 				'<div class="col s1">' +
-					'<td">' + Object.keys(ideas[k].Comments).length  +  '<i class="material-icons">chat_bubble</i>' + '</td>' + 
+					'<td">' + Object.keys(ideas[k].Comments).length  +  '<i class="material-icons smaller-icon">chat_bubble</i>' + '</td>' + 
 				'</div>' +
 
 				'<div class="col s6">' +

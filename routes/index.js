@@ -5,7 +5,6 @@ var firebase = require('firebase');
 var showdown  = require('showdown');
 var converter = new showdown.Converter();
 
-//var config = require('../javascripts/include/config');
 var config = {
     apiKey: "AIzaSyD7v_-dVadUGMCpXW1WvhG7inxn-RU52BY",
     authDomain: "ideabox-c28d8.firebaseapp.com",
@@ -30,36 +29,33 @@ router.get('/login', (req, res) => {
 
 router.post('/login', (req, res) => {
 	
-	res.redirect('/dashboard');
+	var email = req.body.email;
+	var password = req.body.password;
 
-	// var email = req.body.email;
-	// var pass = req.body.password;
-	// const auth = firebase.auth();
+	const promise = firebase.auth().signInWithEmailAndPassword(email, password);
 
-	// const promise = auth.signInWithEmailAndPassword(email, pass);
-
-	// promise
-	// .then(function(user) {
-	// 		auth.onAuthStateChanged(function(user) {
-		//     	if (user != null) {
-		// 			console.log('Success');
-		// 			res.redirect('/dashboard');
-		// 		} else {
-		// 			console.log('Failed');
-		// 			res.redirect('/login');
-		// 		}
-
-	// 		});
- 	// });
-
-    
-
-	// promise
-	// .catch(function(e) {
-	// 	console.log(e.message);
- //      	//res.status(500).send({message: 'Login Failed'});
- //      	res.redirect('/login');
+	// firebase.auth().onAuthStateChanged((user) => {
+	// 	if(user) {
+	// 		console.log('got a user');
+	// 		res.redirect('/dashboard');
+	// 	}
+	// 	else {
+	// 		console.log('got no user');
+	// 		res.redirect('/login');
+	// 	}
 	// });
+
+	promise.then((user) => {
+		if (user) {
+			res.redirect('/dashboard');
+		}
+		else {
+			res.redirect('/login');
+		}
+	}).catch((e) => {
+		res.redirect('/login');
+		console.log('============>',e.message);
+	});
 });
 
 router.get('/signup', (req, res) => {
@@ -81,21 +77,32 @@ router.post('/signup', (req, res) => {
 		Time: "12:00"
 	});
 
-	// const auth = firebase.auth();
+	const auth = firebase.auth();
 
-	// const promise = auth.createUserWithEmailAndPassword(email, pass);
-	// promise
-	// .then(function() {
-	// 	res.redirect('/dashboard');
-	// });
-	// promise
-	// .catch(function(e) {
-	// 	console.log(e.message);
-	// });
+	const promise = auth.createUserWithEmailAndPassword(email, password);
+	promise
+	.then(function() {
+		res.redirect('/dashboard');
+	});
+	promise
+	.catch(function(e) {
+		console.log(e.message);
+	});
+});
+
+router.get('/logout', (req, res) => {
+	firebase.auth().signOut();
+	res.redirect('/');
 });
 
 /* IN */
 router.get('/dashboard', (req, res) => {
+
+	var user = firebase.auth().currentUser;
+	if (!user) {
+		res.redirect('/');
+	}
+
 	res.render('index', { title: 'Express' });
 });
 
@@ -113,6 +120,12 @@ router.post('/dashboard', (req, res) => {
 });
 
 router.get('/user/question/:idea_title', (req,res,next) => {
+	
+	var user = firebase.auth().currentUser;
+	if (!user) {
+		res.redirect('/');
+	}
+		
 	var title = req.params.idea_title;
 	console.log(title);
 
