@@ -79,7 +79,9 @@ a {
 }
 .mgb {
 	margin-bottom: 15px;
-
+}
+.mgt {
+	margin-top: 15px;
 }
 .teal-color {
 	color: #4db6ac;
